@@ -11,7 +11,4 @@ app.get('/about', (req, res) => {
   res.send('About');
 });
 
-app.listen(port, (req, res) => {
-
-  console.log('object');
-});
+app.listen(port, (req, res) => {});
