@@ -10,7 +10,7 @@ app.set('view engine', 'pug');
 
 // Index Route
 app.get('/', function(req, res) {
-  res.render('index', { title: 'Index Page', message: 'Yo Yo' });
+  res.render('index', { title: 'Index Page'});
 });
 
 // About route

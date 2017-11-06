@@ -1,4 +1,10 @@
 include template/head.pug
 body
-  h1!= message
+  include template/navbar.pug
+  .container
+    .jumbotron.text-center
+      h1!= "Welcome"
+      p="Jot down ideas for next YoiTube videos "
+      a.btn.btn-dark.btn-lg(href="/ideas/add")="Add Video"
+
 include template/footer.pug
