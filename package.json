@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
     "eslint": "^4.10.0"
