@@ -1,0 +1,12 @@
+include ../template/head.pug
+body
+  include ../template/navbar.pug
+  .container
+    if ideas && ideas.length
+    each idea,index in ideas
+      .card.card-body.mb-2
+        h4= idea.title
+        p= idea.details
+
+
+include ../template/footer.pug
