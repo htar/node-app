@@ -7,7 +7,10 @@ body
       .card.card-body.mb-2
         h4= idea.title
         p= idea.details
-        a.btn.btn-dark.btn-block(href=`/ideas/edit/` + idea.id) Edit
+        a.btn.btn-dark.btn-block.mb-2(href=`/ideas/edit/` + idea.id) Edit
+        form(action=`/ideas/${idea.id}?_method=DELETE`, method="post")
+          input(type="hidden", name='_method', value='DELETE')
+          input.btn.btn-danger.btn-block(type="submit", value="Delete")
 
 
 include ../template/footer.pug
