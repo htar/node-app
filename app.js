@@ -34,17 +34,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Index Route
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.render('index', { title: 'Index Page' });
 });
 
 // About route
-app.get('/about', function (req, res) {
+app.get('/about', (req, res) => {
   res.render('about', { title: 'About Page' });
 });
 
 // Idea Index Page
-app.get('/ideas', function (req, res) {
+app.get('/ideas', (req, res) => {
   Idea.find({
   })
     .sort({ date: 'desc' })
@@ -52,11 +52,23 @@ app.get('/ideas', function (req, res) {
       res.render('ideas/index', {
         ideas: ideas,
       });
-    })
+    });
 });
 
+// Edit Idea Form
+app.get('/ideas/edit/:id', (req, res) => {
+  Idea.findOne({
+    _id: req.params.id
+  }).then(idea => {
+    res.render('ideas/edit', {
+      idea: idea
+    });
+  });
+});
+
+
 // Add Idea Form
-app.get('/ideas/add', function (req, res) {
+app.get('/ideas/add', (req, res) => {
   res.render('ideas/add');
 });
 
