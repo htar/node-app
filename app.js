@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override')
 
 const app = express();
 const port = 5000;
@@ -32,6 +33,10 @@ app.set('view engine', 'pug');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+// Method override middleware
+app.use(methodOverride('_method'));
 
 // Index Route
 app.get('/', (req, res) => {
@@ -104,6 +109,20 @@ app.post('/ideas', (req, res) => {
   }
 });
 
+
+// Edit Form process Idea Form
+app.put('/ideas/:id', (req, res) => {
+  Idea.findOne({
+    _id: req.params.id
+  }).then(idea => {
+    idea.title = req.body.title;
+    idea.details = req.body.details;
+    idea.save()
+      .then(idea => {
+        res.redirect('/ideas');
+      });
+  });
+});
 
 app.listen(port, (req, res) => {
   console.log(`Server started on port ${port}`);

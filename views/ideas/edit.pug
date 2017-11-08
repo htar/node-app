@@ -7,7 +7,8 @@ body
         .alert.alert-danger= error.text
     .card.card-body
       h3 EditVideo Idea
-      form(action="/ideas", method='post')
+      form(action=`/ideas/${idea.id}?_method=PUT`, method='post')
+        input(type="hidden", name='_method', value='PUT')
         .form-group
           label(for="title") Title
           input.form-control(type="text",name='title',value=idea.title ,required )
