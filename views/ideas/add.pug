@@ -2,6 +2,7 @@ include ../template/head.pug
 body
   include ../template/navbar.pug
   .container
+    include ../template/_msg.pug
     if errors && errors.length
       each error,index in errors
         .alert.alert-danger= error.text
