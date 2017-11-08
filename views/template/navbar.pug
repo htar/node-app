@@ -6,8 +6,13 @@ nav.navbar.navbar-expand-sm.navbar-dark.bg-primary.mb-3
     #navbarNav.collapse.navbar-collapse
       ul.navbar-nav
         li.nav-item
-          a.nav-link(href='/')
-            | Home 
+          a.nav-link(href='/') Home 
         li.nav-item
           a.nav-link(href='/about') About
+      ul.navbar-nav.ml-auto
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(href="#",id='navbarDropdownMenuLink', data-toggle='dropdown') Video Ideas
+          .dropdown-menu
+            a.dropdown-item(href="/ideas") Ideas
+            a.dropdown-item(href="/ideas/add") Add Idea
 

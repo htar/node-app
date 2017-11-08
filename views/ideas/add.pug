@@ -1,0 +1,20 @@
+include ../template/head.pug
+body
+  include ../template/navbar.pug
+  .container
+    if errors && errors.length
+      each error,index in errors
+        .alert.alert-danger= error.text
+    .card.card-body
+      h3 Video Idea
+      form(action="/ideas", method='post')
+        .form-group
+          label(for="title") Title
+          input.form-control(type="text",name='title' ,required )
+        .form-group
+          label(for="details") Details
+          textarea.form-control(type="text",name='details'  )
+        button.btn.btn-primary(type="submit") Submit
+
+
+include ../template/footer.pug
