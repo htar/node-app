@@ -3,6 +3,7 @@ include ../template/head.pug
 body
   include ../template/navbar.pug
   .container
+    include ../template/errors.pug
     .col-md-6.mx-auto
       .card.card-body
         img.logo(src="/img/images.jpeg", alt="")
@@ -10,11 +11,11 @@ body
         form(action="", method="get")
           .form-group
             label(for="email") Email
-            input.form-control(type="email", email='email', required)
+            input.form-control(type="email", name='email', required)
           .form-group
             label(for="password") Password
-            input.form-control(type="password", password='password', required)
-          button.btn.btn-primary(type="button") Submit
+            input.form-control(type="password", name='password', required)
+          button.btn.btn-primary(type="submit") Submit
 
 
 include ../template/footer.pug
