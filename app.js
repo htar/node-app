@@ -19,7 +19,7 @@ const users = require('./routes/users');
 // Map global promise -get rid of warning
 mongoose.Promise = global.Promise;
 // Connect to mongoose
-mongoose.connect('mongodb://localhost/vidjot-dev', {
+mongoose.connect('mongodb://localhost/vidjot', {
   useMogoClient: true
 })
   .then(() => {
