@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
@@ -38,6 +39,8 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Method override middleware
 app.use(methodOverride('_method'));
@@ -61,12 +64,12 @@ app.use((req, res, next) => {
 
 // Index Route
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Index Page' });
+  res.render('index');
 });
 
 // About route
 app.get('/about', (req, res) => {
-  res.render('about', { title: 'About Page' });
+  res.render('about');
 });
 
 

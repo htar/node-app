@@ -1,0 +1,20 @@
+-var title = 'Login'
+include ../template/head.pug
+body
+  include ../template/navbar.pug
+  .container
+    .col-md-6.mx-auto
+      .card.card-body
+        img.logo(src="/img/images.jpeg", alt="")
+        h3.text-center Account Login
+        form(action="", method="get")
+          .form-group
+            label(for="email") Email
+            input.form-control(type="email", email='email', required)
+          .form-group
+            label(for="password") Password
+            input.form-control(type="password", password='password', required)
+          button.btn.btn-primary(type="button") Submit
+
+
+include ../template/footer.pug
