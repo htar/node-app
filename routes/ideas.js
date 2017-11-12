@@ -10,8 +10,7 @@ const Idea = mongoose.model('ideas');
 
 // Idea Index Page
 router.get('/', ensureAuthenticated,(req, res) => {
-  Idea.find({
-  })
+  Idea.find({user:req.user.id})
     .sort({ date: 'desc' })
     .then(ideas => {
       res.render('ideas/index', {
@@ -60,7 +59,8 @@ router.post('/', ensureAuthenticated, (req, res) => {
     });
   } else {
     const newUser = {
-      title: req.body.title,
+      title: req.body.title, 
+      user:req.user.id,
       details: req.body.details,
     };
     new Idea(newUser)
