@@ -11,6 +11,7 @@ body
           form(action=`/ideas/${idea.id}?_method=DELETE`, method="post")
             input(type="hidden", name='_method', value='DELETE')
             input.btn.btn-danger.btn-block(type="submit", value="Delete")
-
+    else
+      p No video ideas listed
 
 include ../template/footer.pug

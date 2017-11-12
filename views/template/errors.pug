@@ -1,3 +1,7 @@
+//- Passport error
+if error && error.length
+  .alert.alert-danger=error
+
 if errors && errors.length
   each error,index in errors
     .alert.alert-danger= error.text
